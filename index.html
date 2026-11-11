@@ -3,267 +3,321 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Massimo Sammito — AI Product Leader in Drug Discovery</title>
-<meta name="description" content="Massimo Domenico Sammito, PhD — Associate Director, Product at Recursion. AI and agentic products for drug discovery. Formerly R&amp;D IT Director at AstraZeneca.">
+<title>Massimo Sammito — AI Product Leader for Drug Discovery</title>
+<meta name="description" content="Massimo Domenico Sammito, PhD — AI product leader who turns frontier AI into drug-discovery products that scientists adopt. Associate Director, Product at Recursion; formerly Director, R&amp;D IT at AstraZeneca.">
 <meta name="author" content="Massimo Domenico Sammito">
-<meta property="og:title" content="Massimo Sammito — AI Product Leader in Drug Discovery">
-<meta property="og:description" content="Associate Director, Product at Recursion. Building AI and agentic products for drug discovery.">
+<meta property="og:title" content="Massimo Sammito — AI Product Leader for Drug Discovery">
+<meta property="og:description" content="I turn frontier AI into drug-discovery products that scientists adopt.">
 <meta property="og:type" content="profile">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+<meta property="og:url" content="https://massimosammito.github.io/">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='30' cy='32' r='14' fill='%237c5cff'/><circle cx='70' cy='40' r='11' fill='%2322d3ee'/><circle cx='46' cy='74' r='12' fill='%23f472b6'/><path d='M30 32L70 40L46 74Z' fill='none' stroke='%23a5b4fc' stroke-width='5'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>
+  // Theme before first paint, so a saved choice never flashes.
+  (function () { try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {} })();
+</script>
 </head>
 <body>
+<div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
 
-<nav>
-  <div class="wrap">
-    <span class="nav-name">Massimo Sammito</span>
+<nav id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="dot"></span>Massimo Sammito</a>
     <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#publications">Research</a>
+      <a href="#approach">Approach</a>
+      <a href="#journey">Journey</a>
+      <a href="#lab">Lab</a>
+      <a href="#research">Research</a>
       <a href="#contact">Contact</a>
     </div>
-    <button id="theme-toggle" aria-label="Toggle colour theme">◐</button>
+    <button id="theme-toggle" class="icon-btn" aria-label="Toggle colour theme">
+      <svg class="sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg>
+      <svg class="moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+    </button>
   </div>
 </nav>
 
-<header class="hero">
-  <div class="wrap">
-    <h1>Massimo Domenico Sammito, PhD</h1>
-    <p class="role"><strong>Associate Director, Product</strong> at Recursion</p>
-    <p class="meta">AI &amp; agentic products for drug discovery · Cambridge, UK</p>
-    <div class="links">
-      <a class="primary" href="assets/Massimo_Sammito_CV.pdf">Download CV</a>
-      <a href="https://www.linkedin.com/in/massimosammito">LinkedIn</a>
-      <a href="https://scholar.google.com/citations?user=m60HpusAAAAJ">Google Scholar</a>
-      <a href="https://orcid.org/0000-0002-8346-9247">ORCID</a>
-      <a href="https://github.com/massimosammito">GitHub</a>
+<header class="hero" id="top">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow reveal">AI product leader · drug discovery · agentic AI</p>
+    <h1 class="reveal">Massimo Domenico<br><em>Sammito</em>, PhD</h1>
+    <p class="hero-lead reveal">
+      I turn frontier AI into drug-discovery products that scientists adopt.
+      <span class="rotator" aria-live="polite">I <span id="rotate">set the AI product strategy</span><span class="caret">|</span></span>
+    </p>
+    <p class="hero-now reveal"><span class="pulse"></span><span>Associate Director, Product at <b>Recursion</b> · Cambridge, UK</span></p>
+    <div class="cta reveal">
+      <a class="btn primary" href="assets/Massimo_Sammito_CV.pdf" download>
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.6l3.3-3.3a1 1 0 1 1 1.4 1.4l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.4l3.3 3.3V4a1 1 0 0 1 1-1ZM5 19h14a1 1 0 1 1 0 2H5a1 1 0 1 1 0-2Z"/></svg>
+        Download CV
+      </a>
+      <a class="btn" href="https://www.linkedin.com/in/massimosammito" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://scholar.google.com/citations?user=m60HpusAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a class="btn" href="https://orcid.org/0000-0002-8346-9247" target="_blank" rel="noopener">ORCID</a>
+      <a class="btn" href="https://github.com/massimosammito" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
+  <a class="scroll-hint" href="#numbers" aria-label="Scroll down"><span></span></a>
 </header>
 
 <main>
 
-<section id="about">
+<section class="numbers" id="numbers">
+  <div class="wrap stats">
+    <div class="stat reveal"><b data-count="10" data-suffix="+">10+</b><span>years in biotech &amp; pharma R&amp;D</span></div>
+    <div class="stat reveal"><b data-count="200" data-suffix="+">200+</b><span>scientists on the platform I owned at AstraZeneca</span></div>
+    <div class="stat reveal"><b data-count="30" data-suffix="%">30%</b><span>less antibody design time from GenAI workflows</span></div>
+    <div class="stat reveal"><b data-count="25" data-suffix="+">25+</b><span>peer-reviewed papers · h-index 21</span></div>
+  </div>
+</section>
+
+<section id="approach">
   <div class="wrap">
-    <h2>About</h2>
-    <p class="lead">
-      I lead AI product organisations in biotech and pharma. Over the past decade I've moved from
-      writing crystallographic phasing algorithms to <strong>defining and shipping AI platforms that
-      scientists actually use</strong> — most recently a biologics discovery platform serving 200+
-      scientists at AstraZeneca, and now agentic products for hit identification and molecular design
-      at Recursion. I care about the unglamorous half of AI in drug discovery: governance, data
-      strategy, vendor economics, and getting models out of notebooks and into the pipeline.
+    <p class="kicker reveal">Approach</p>
+    <h2 class="reveal">A scientist who builds products.<br><em>Not a lab, not a black box.</em></h2>
+    <p class="section-lead reveal">
+      I started by writing crystallographic phasing algorithms, then designed antibodies with AI, then led the product
+      organisations that put AI in front of scientists. That path is the job: understanding the science well enough to
+      know what matters, and the AI well enough to know what is real.
     </p>
-    <div class="stats">
-      <div class="stat"><b>10+</b><span>years in biotech &amp; pharma R&amp;D</span></div>
-      <div class="stat"><b>~30</b><span>staff led across product orgs</span></div>
-      <div class="stat"><b>25+</b><span>peer-reviewed publications</span></div>
-      <div class="stat"><b>21</b><span>h-index</span></div>
+    <div class="cards">
+      <article class="card reveal" data-tilt>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18 10 12l4 4 6-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="8" r="2" fill="currentColor"/></svg>
+        </div>
+        <h3>Set the strategy</h3>
+        <p>Vision and roadmaps for AI portfolios — today an integrated agentic AI ecosystem across the design-make-test-learn cycle at Recursion; before that the Biologics Discovery Platform at AstraZeneca.</p>
+      </article>
+      <article class="card reveal" data-tilt>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h11l-3-3M20 17H9l3 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Translate across teams</h3>
+        <p>Turning biological needs into technical roadmaps, and model results into decisions — between wet-lab and computational teams, AI research and discovery, science and the business.</p>
+      </article>
+      <article class="card reveal" data-tilt>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 5l-3 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Prototype to de-risk</h3>
+        <p>I build working prototypes with Claude Code and Codex — spec first, then agents — so an idea becomes something concrete before a team commits to it.</p>
+      </article>
+      <article class="card reveal" data-tilt>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="5" cy="17" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="19" cy="17" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9.5 6.5 15M14 9.5l3.5 5.5" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <h3>Lead product teams</h3>
+        <p>A ~20-person organisation with 8 direct reports at AstraZeneca; a team of 4 Product Managers at Recursion. Science-first, agile, accountable for adoption.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<section id="experience">
+<section id="journey">
   <div class="wrap">
-    <h2>Experience</h2>
-
-    <div class="job">
-      <div class="job-head">
-        <span class="job-title">Associate Director — Product</span>
-        <span class="job-co">Recursion</span>
-        <span class="job-when">Mar 2026 — Present</span>
-      </div>
-      <ul>
-        <li><b>Team leadership:</b> Leading 4 Product Managers, each owning a group of AI and agentic products across the drug discovery pipeline.</li>
-        <li><b>Product delivery:</b> Personally driving the Hit-ID and Design space — agentic AI products that help scientists design better molecules.</li>
-        <li><b>Strategic collaboration:</b> Working with Valence Labs on advanced AI models in transcriptomics, genomics and de novo design.</li>
-      </ul>
+    <p class="kicker reveal">Journey</p>
+    <h2 class="reveal">From phasing algorithms<br><em>to agentic products.</em></h2>
+    <div class="phases reveal" role="tablist" aria-label="Career phases">
+      <button class="phase on" data-phase="all">All</button>
+      <button class="phase" data-phase="product">Product leadership</button>
+      <button class="phase" data-phase="ai">Applied AI</button>
+      <button class="phase" data-phase="research">Research</button>
     </div>
 
-    <div class="job">
-      <div class="job-head">
-        <span class="job-title">Director, R&amp;D IT — Data, Analytics &amp; AI</span>
-        <span class="job-co">AstraZeneca</span>
-        <span class="job-when">Oct 2024 — Jan 2026</span>
-      </div>
-      <ul>
-        <li><b>AI product leadership:</b> Owned vision and roadmap for the Biologics Discovery Platform (200+ scientists globally). Delivered a developability-prediction product that won the internal SVP Award, and GenAI workflows that cut antibody design time by 30%.</li>
-        <li><b>Organisational management:</b> Led a ~20-person product organisation with 8 direct reports — Product Owners, AI Scientists and Engineers.</li>
-        <li><b>Strategic enablement:</b> Removed screening-campaign bottlenecks with on-demand AWS EC2 sandbox environments, accelerating scientific delivery by 50%.</li>
-        <li><b>Vendor strategy:</b> Shifted the Seqera (Nextflow) relationship from user-based to usage-based licensing; partnered with Schrödinger on token optimisation for a 15% efficiency gain.</li>
-        <li><b>Innovation ecosystem:</b> Orchestrated collaborations with NVIDIA (model fine-tuning) and Rhino Health (federated learning).</li>
-        <li><b>AI governance:</b> Established and chaired the AI risk governance framework — 100% of deployed models and data products compliant with internal regulatory and safety standards.</li>
-      </ul>
-    </div>
+    <ol class="timeline" id="timeline">
+      <li class="tl-line" aria-hidden="true"><span id="tl-fill"></span></li>
 
-    <div class="job">
-      <div class="job-head">
-        <span class="job-title">Associate Principal Scientist — Strategic AI Lead</span>
-        <span class="job-co">AstraZeneca</span>
-        <span class="job-when">Aug 2022 — Oct 2024</span>
-      </div>
-      <ul>
-        <li><b>Product delivery:</b> Led AI-driven antibody discovery campaigns, delivering 3+ campaigns with experimentally validated, high-affinity lead candidates.</li>
-        <li><b>Methodology:</b> Championed hybrid physics-based + deep learning workflows, improving prediction accuracy 15% over legacy methods.</li>
-        <li><b>Data strategy:</b> Defined the data acquisition strategy for large-scale model training — 1.4M sequences (OAS) and 7k structures (SAbDab).</li>
-        <li><b>External alliances:</b> Managed partnerships with AI biotechs Nabla and Absci across 4 joint discovery targets.</li>
-      </ul>
-    </div>
+      <li class="role reveal" data-phase="product">
+        <div class="when"><span>Mar 2026 — now</span></div>
+        <div class="role-card">
+          <header><h3>Associate Director, Product</h3><p class="co">Recursion · UK</p></header>
+          <ul>
+            <li><b>Product leadership</b> — lead a team of 4 Product Managers, each owning a portfolio of AI and agentic products across the drug-discovery pipeline.</li>
+            <li><b>Agentic DMTL ecosystem</b> — set the vision and roadmap for an integrated agentic AI ecosystem across the design-make-test-learn cycle; own the Design layer and lead the implementation of Test and Learn.</li>
+            <li><b>Hit-ID &amp; Design</b> — own the Hit Identification &amp; Design product area, with 2–3 agentic AI products in pilot with computational scientists.</li>
+            <li><b>Research to product</b> — partner with Valence Labs, Recursion's AI research unit, to bring models in transcriptomics, genomics and de novo design into products for discovery teams.</li>
+          </ul>
+          <div class="chips"><span>Agentic AI</span><span>Portfolio roadmap</span><span>Hit ID</span><span>Team of 4 PMs</span></div>
+        </div>
+      </li>
 
-    <div class="job past">
-      <div class="job-head">
-        <span class="job-title">Senior Computational Scientist II</span>
-        <span class="job-co">PhoreMost</span>
-        <span class="job-when">Jun 2021 — Aug 2022</span>
-      </div>
-      <ul>
-        <li>Directed AI/ML pipeline design for peptide library engineering, feeding directly into R&amp;D decision-making.</li>
-        <li>Replaced manual analysis with automated workflows and drove agile adoption within the scientific team.</li>
-      </ul>
-    </div>
+      <li class="role reveal" data-phase="product">
+        <div class="when"><span>Oct 2024 — Jan 2026</span></div>
+        <div class="role-card">
+          <header><h3>Director, R&amp;D IT — Data, Analytics &amp; AI</h3><p class="co">AstraZeneca · Cambridge, UK</p></header>
+          <ul>
+            <li><b>Platform ownership</b> — product vision and roadmap for the Biologics Discovery Platform, serving 200+ scientists globally.</li>
+            <li><b>Shipped AI products</b> — a developability-prediction product that won the internal SVP Award, and GenAI workflows that cut overall antibody design time by 30%.</li>
+            <li><b>Team leadership</b> — a ~20-person product organisation with 8 direct reports: Product Owners, AI Scientists and Engineers.</li>
+            <li><b>AI governance</b> — set up and chaired the AI risk-governance framework; 100% of deployed models and data products met internal regulatory and safety standards.</li>
+            <li><b>Vendors &amp; ecosystem</b> — moved Seqera (Nextflow) to usage-based licensing; 15% efficiency gain with Schrödinger on token optimisation; collaborations with NVIDIA (model fine-tuning) and Rhino Health (federated learning).</li>
+            <li><b>Scientific velocity</b> — on-demand AWS EC2 sandboxes removed the screening-campaign bottleneck and sped up scientific delivery by 50%.</li>
+          </ul>
+          <div class="chips"><span>SVP Award</span><span>200+ users</span><span>AI governance</span><span>8 direct reports</span></div>
+        </div>
+      </li>
 
-    <div class="job past">
-      <div class="job-head">
-        <span class="job-title">Marie Skłodowska-Curie Individual Fellow</span>
-        <span class="job-co">University of Cambridge</span>
-        <span class="job-when">May 2018 — Jun 2021</span>
-      </div>
-      <ul>
-        <li>Secured fellowship funding and led the full lifecycle of scientific software for X-ray crystallographic phasing.</li>
-        <li>Developed reproducible methodologies for structural biology, disseminated through high-impact publications.</li>
-      </ul>
-    </div>
+      <li class="role reveal" data-phase="ai">
+        <div class="when"><span>Aug 2022 — Oct 2024</span></div>
+        <div class="role-card">
+          <header><h3>Associate Principal Scientist — Strategic AI Lead, Antibody Discovery</h3><p class="co">AstraZeneca · Cambridge, UK</p></header>
+          <ul>
+            <li><b>AI-designed antibodies</b> — led AI-driven discovery for 3+ campaigns that produced experimentally validated, high-affinity lead candidates.</li>
+            <li><b>Hybrid modelling</b> — drove the shift to hybrid physics-based + deep-learning workflows, improving prediction accuracy by 15% over legacy methods.</li>
+            <li><b>Data strategy</b> — curated 1.4M antibody sequences (OAS) and 7k structures (SAbDab) into a proprietary training asset.</li>
+            <li><b>Alliances</b> — managed partnerships with AI biotechs Nabla Bio and Absci across 4 joint discovery targets.</li>
+            <li><b>Bridge role</b> — the liaison between wet-lab and computational teams, turning biological needs into executable technical roadmaps.</li>
+          </ul>
+          <div class="chips"><span>Antibody design</span><span>Nabla Bio · Absci</span><span>Data strategy</span></div>
+        </div>
+      </li>
 
-    <details class="earlier">
-      <summary>Earlier academic roles (2011 — 2018)</summary>
-      <p class="mini"><b>Postdoctoral Fellow</b> · C.S.I.C., Spain <span>· Jan 2017 — May 2018</span><br>
-      Computational methods for X-ray crystallography and data clustering; supervised and mentored PhD students.</p>
-      <p class="mini"><b>Postdoctoral Researcher</b> · Georg-August-Universität Göttingen, Germany <span>· Sep 2015 — May 2016</span><br>
-      Computational structural biology with a focus on algorithm development.</p>
-      <p class="mini"><b>Bioinformatics Computer Scientist (PhD)</b> · C.S.I.C., Spain <span>· Jan 2011 — Sep 2015</span><br>
-      Algorithms for crystallography and machine learning applied to structural bioinformatics.</p>
-    </details>
+      <li class="role reveal" data-phase="ai">
+        <div class="when"><span>Jun 2021 — Aug 2022</span></div>
+        <div class="role-card">
+          <header><h3>Senior Computational Scientist II</h3><p class="co">PhoreMost · Cambridge, UK</p></header>
+          <ul>
+            <li>Designed AI/ML pipelines for peptide-library engineering that fed directly into R&amp;D decisions; replaced manual analysis with automated workflows and brought agile practice to the science team.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="role reveal" data-phase="research">
+        <div class="when"><span>2011 — 2021</span></div>
+        <div class="role-card">
+          <header><h3>Research career</h3><p class="co">University of Cambridge · CSIC, Spain · University of Göttingen</p></header>
+          <ul>
+            <li><b>Marie Skłodowska-Curie Fellow</b>, University of Cambridge (2018–2021) — secured competitive EU funding and led end-to-end development of crystallographic phasing software.</li>
+            <li><b>Postdoctoral researcher</b> at CSIC, Spain and the University of Göttingen; <b>PhD</b> at CSIC / Universitat de Barcelona — ARCIMBOLDO and ALEPH, co-author on Phenix; machine learning applied to structural bioinformatics; mentored PhD students.</li>
+            <li>Early validation of AlphaFold / CASP14 models for structure solution.</li>
+          </ul>
+          <div class="chips"><span>ARCIMBOLDO</span><span>ALEPH</span><span>Phenix</span><span>AlphaFold</span></div>
+        </div>
+      </li>
+    </ol>
   </div>
 </section>
 
-<section id="education">
+<section id="lab">
   <div class="wrap">
-    <h2>Education</h2>
-    <div class="row">
-      <span class="what">PhD, Biotechnology</span>
-      <span class="where">Computational Crystallography · Universitat de Barcelona</span>
-      <span class="when">2011 — 2015</span>
-    </div>
-    <div class="row">
-      <span class="what">MSc, Bioinformatics</span>
-      <span class="where">Dual degree · Universitat Pompeu Fabra &amp; Università di Bologna</span>
-      <span class="when">2009 — 2011</span>
-    </div>
-    <div class="row">
-      <span class="what">BSc, Computer Science</span>
-      <span class="where">Università di Catania</span>
-      <span class="when">2004 — 2009</span>
+    <p class="kicker reveal">Lab</p>
+    <h2 class="reveal">I still build.<br><em>It keeps the strategy honest.</em></h2>
+    <div class="lab">
+      <div class="terminal reveal" aria-label="Prototyping workflow">
+        <div class="term-bar"><span></span><span></span><span></span><b>spec-first.md</b></div>
+        <pre id="term"><code><span class="c"># how a prototype gets made</span>
+<span class="k">1</span> design doc     <span class="m">→ what problem, for whom, how we'll know</span>
+<span class="k">2</span> technical spec <span class="m">→ data, interfaces, failure modes</span>
+<span class="k">3</span> agents build   <span class="m">→ Claude Code · Codex</span>
+<span class="k">4</span> a working prototype <span class="m">→ something real to react to</span></code></pre>
+      </div>
+      <div class="lab-list">
+        <article class="lab-item reveal">
+          <h3>Agentic prototyping</h3>
+          <p>Functional prototypes with Claude Code and Codex using a spec-first workflow, plus a local multimodal model stack.</p>
+        </article>
+        <article class="lab-item reveal">
+          <h3>Architecture literacy</h3>
+          <p>Agentic architectures, multi-agent workflows and software-engineering practice — enough to shape technical direction with engineering and research teams.</p>
+        </article>
+        <article class="lab-item reveal">
+          <h3>DrugQuest</h3>
+          <p>A bilingual educational drug-discovery game — small molecules, antibodies, ADCs, PROTACs — with a Python build pipeline and a static React/TypeScript app.</p>
+        </article>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="publications">
+<section id="research">
   <div class="wrap">
-    <h2>Selected publications</h2>
-    <p class="lead" style="font-size:15px;margin-bottom:8px">
-      25+ peer-reviewed publications, h-index 21. Full list on
-      <a href="https://scholar.google.com/citations?user=m60HpusAAAAJ">Google Scholar</a> and
-      <a href="https://orcid.org/0000-0002-8346-9247">ORCID</a>.
+    <p class="kicker reveal">Research</p>
+    <h2 class="reveal">25+ papers.<br><em>h-index 21.</em></h2>
+    <p class="section-lead reveal">
+      From fragment-based phasing to AlphaFold and antibody affinity. Full list on
+      <a href="https://scholar.google.com/citations?user=m60HpusAAAAJ" target="_blank" rel="noopener">Google Scholar</a> and
+      <a href="https://orcid.org/0000-0002-8346-9247" target="_blank" rel="noopener">ORCID</a>.
     </p>
+    <div class="filters reveal" role="tablist" aria-label="Filter publications">
+      <button class="filter on" data-f="all">All</button>
+      <button class="filter" data-f="first">First author</button>
+      <button class="filter" data-f="ai">AlphaFold &amp; AI</button>
+      <button class="filter" data-f="methods">Software &amp; methods</button>
+      <button class="filter" data-f="bio">Biology</button>
+    </div>
+    <ul class="pubs" id="pubs">
+      <li class="pub reveal" data-tags="ai bio"><a href="https://doi.org/10.1016/j.cels.2025.101483" target="_blank" rel="noopener">
+        <span class="yr">2026</span><span class="ttl">Integrated single-cell analyses of affinity-tested B cells enable the identification of a gene signature to predict antibody affinity</span><span class="venue">Cell Systems</span></a></li>
+      <li class="pub reveal" data-tags="ai methods"><a href="https://doi.org/10.1002/pro.70481" target="_blank" rel="noopener">
+        <span class="yr">2026</span><span class="ttl">Guiding AlphaFold predictions with experimental knowledge to inform dynamics and interactions with VAIRO</span><span class="venue">Protein Science</span></a></li>
+      <li class="pub reveal" data-tags="ai methods"><a href="https://doi.org/10.1107/S2059798321012122" target="_blank" rel="noopener">
+        <span class="yr">2022</span><span class="ttl">Implications of AlphaFold2 for crystallographic phasing by molecular replacement</span><span class="venue">Acta Cryst. D</span></a></li>
+      <li class="pub reveal" data-tags="ai"><a href="https://doi.org/10.1002/prot.26214" target="_blank" rel="noopener">
+        <span class="yr">2021</span><span class="ttl">Assessing the utility of CASP14 models for molecular replacement</span><span class="venue">Proteins</span><span class="note">Early validation of AlphaFold</span></a></li>
+      <li class="pub reveal" data-tags="bio"><a href="https://doi.org/10.1073/pnas.2014442118" target="_blank" rel="noopener">
+        <span class="yr">2021</span><span class="ttl">The amphibian antimicrobial peptide uperin 3.5 is a cross-α/cross-β chameleon functional amyloid</span><span class="venue">PNAS</span></a></li>
+      <li class="pub reveal" data-tags="methods"><a href="https://pubmed.ncbi.nlm.nih.gov/32133985/" target="_blank" rel="noopener">
+        <span class="yr">2020</span><span class="ttl">ALEPH: a network-oriented approach for the generation of fragment-based libraries and for structure interpretation</span><span class="venue">Acta Cryst. D</span><span class="note">Corresponding author</span></a></li>
+      <li class="pub reveal" data-tags="methods"><a href="https://doi.org/10.1107/S2059798319011471" target="_blank" rel="noopener">
+        <span class="yr">2019</span><span class="ttl">Macromolecular structure determination using X-rays, neutrons and electrons: recent developments in Phenix</span><span class="venue">Acta Cryst. D</span></a></li>
+      <li class="pub reveal" data-tags="first methods"><a href="https://doi.org/10.1111/febs.12897" target="_blank" rel="noopener">
+        <span class="yr">2014</span><span class="ttl">Structure solution with ARCIMBOLDO using fragments derived from distant homology models</span><span class="venue">FEBS Journal</span><span class="note">First author</span></a></li>
+      <li class="pub reveal" data-tags="first methods"><a href="https://doi.org/10.1038/nmeth.2644" target="_blank" rel="noopener">
+        <span class="yr">2013</span><span class="ttl">Exploiting tertiary structure through local folds for crystallographic phasing</span><span class="venue">Nature Methods</span><span class="note">First author</span></a></li>
+      <li class="pub reveal" data-tags="methods"><a href="https://doi.org/10.1107/S0907444911056071" target="_blank" rel="noopener">
+        <span class="yr">2012</span><span class="ttl">Practical structure solution with ARCIMBOLDO</span><span class="venue">Acta Cryst. D</span></a></li>
+    </ul>
+  </div>
+</section>
 
-    <div class="pub">
-      <span class="venue">Nature Methods · 2013</span>
-      <span class="title">Exploiting tertiary structure through local folds for crystallographic phasing</span>
-      <span class="note">First author</span>
+<section id="background">
+  <div class="wrap two">
+    <div>
+      <p class="kicker reveal">Education</p>
+      <div class="edu reveal">
+        <div><b>PhD, Biotechnology</b><span>Computational Crystallography · Universitat de Barcelona</span><i>2015</i></div>
+        <div><b>MSc, Bioinformatics</b><span>Dual degree · Universitat Pompeu Fabra &amp; Università di Bologna</span><i>2011</i></div>
+        <div><b>BSc, Computer Science</b><span>Università di Catania</span><i>2009</i></div>
+      </div>
     </div>
-    <div class="pub">
-      <span class="venue">Acta Cryst. D · 2020</span>
-      <span class="title">ALEPH: a network-oriented approach for the generation of fragment-based libraries and for structure interpretation</span>
-      <span class="note">Corresponding author</span>
-    </div>
-    <div class="pub">
-      <span class="venue">Proteins · 2021</span>
-      <span class="title">Assessing the utility of CASP14 models for molecular replacement</span>
-      <span class="note">Early validation of AlphaFold performance</span>
-    </div>
-    <div class="pub">
-      <span class="venue">Acta Cryst. D · 2019</span>
-      <span class="title">Macromolecular structure determination using X-rays, neutrons and electrons: recent developments in Phenix</span>
+    <div>
+      <p class="kicker reveal">Toolkit</p>
+      <div class="toolkit reveal">
+        <div><b>AI &amp; science</b><p>LLM &amp; agentic products · protein &amp; antibody design models · developability prediction · federated learning · model evaluation</p></div>
+        <div><b>Product</b><p>Portfolio prioritisation · roadmapping · product discovery · OKRs · Agile · Airfocus · JIRA · Confluence · Miro</p></div>
+        <div><b>Technical</b><p>Python · PyTorch · SQL · Java · C++ · AWS (Bedrock, S3, EC2) · Kubernetes · Nextflow · Claude Code · Codex · Cursor</p></div>
+        <div><b>Languages</b><p>Italian (native) · English · Spanish (full professional) · French (intermediate)</p></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="skills">
+<section id="contact" class="contact">
   <div class="wrap">
-    <h2>Toolkit</h2>
-    <div class="skills">
-      <div class="skill-row"><b>Product</b><div class="tags">
-        <span>Airfocus</span><span>JIRA</span><span>Confluence</span><span>Smartsheet</span><span>Miro</span><span>Lucid</span><span>Monday</span>
-      </div></div>
-      <div class="skill-row"><b>AI tooling</b><div class="tags">
-        <span>Claude Code</span><span>Cursor</span><span>Gemini</span>
-      </div></div>
-      <div class="skill-row"><b>Programming</b><div class="tags">
-        <span>Python</span><span>Java</span><span>C++</span><span>Fortran</span>
-      </div></div>
-      <div class="skill-row"><b>Stack</b><div class="tags">
-        <span>AWS (Bedrock, S3, EC2)</span><span>Kubernetes</span><span>PyTorch</span><span>SQL</span><span>Nextflow</span>
-      </div></div>
-      <div class="skill-row"><b>Languages</b><div class="tags">
-        <span>Italian — native</span><span>English — full professional</span><span>Spanish — full professional</span><span>French — intermediate</span>
-      </div></div>
+    <h2 class="reveal">Let's talk about<br><em>AI that scientists actually use.</em></h2>
+    <p class="section-lead reveal">AI product strategy in drug discovery, agentic systems for science, or structural biology.</p>
+    <div class="cta reveal">
+      <a class="btn primary big" href="mailto:massimo.sammito@gmail.com">massimo.sammito@gmail.com</a>
+      <a class="btn big" href="https://www.linkedin.com/in/massimosammito" target="_blank" rel="noopener">Connect on LinkedIn</a>
     </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap">
-    <h2>Contact</h2>
-    <p class="lead">
-      Happy to talk about AI product strategy in drug discovery, agentic systems for science,
-      or structural biology. Reach me at
-      <a href="mailto:massimo.sammito@gmail.com">massimo.sammito@gmail.com</a>.
-    </p>
   </div>
 </section>
 
 </main>
 
 <footer>
-  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;width:100%">
+  <div class="wrap foot">
     <span>© <span id="year">2026</span> Massimo Domenico Sammito</span>
-    <span class="spacer"></span>
-    <span>Built with plain HTML &amp; CSS · hosted on GitHub Pages</span>
+    <span>Hand-built HTML, CSS &amp; a little canvas · GitHub Pages</span>
   </div>
 </footer>
 
-<script>
-  (function () {
-    var root = document.documentElement;
-    var saved;
-    try { saved = localStorage.getItem('theme'); } catch (e) {}
-    if (saved) root.setAttribute('data-theme', saved);
-
-    document.getElementById('theme-toggle').addEventListener('click', function () {
-      var isDark = root.getAttribute('data-theme') === 'dark' ||
-        (!root.getAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
-      var next = isDark ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      try { localStorage.setItem('theme', next); } catch (e) {}
-    });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-  })();
-</script>
-
+<script src="script.js" defer></script>
 </body>
 </html>
