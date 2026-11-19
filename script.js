@@ -10,9 +10,12 @@
     var next = dark ? "light" : "dark";
     root.setAttribute("data-theme", next);
     try { localStorage.setItem("theme", next); } catch (e) {}
-    readColors();
   });
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  // The name slides up line by line as the page opens.
+  var name = document.querySelector(".name");
+  requestAnimationFrame(function () { requestAnimationFrame(function () { name.classList.add("in"); }); });
 
   // ---- Nav, progress bar, timeline fill -----------------------------------------------------
   var nav = document.getElementById("nav");
@@ -111,90 +114,7 @@
     });
   });
 
-  // ---- Card tilt and spotlight --------------------------------------------------------------
-  if (!reduced && matchMedia("(hover: hover)").matches) {
-    document.querySelectorAll("[data-tilt]").forEach(function (c) {
-      c.addEventListener("pointermove", function (e) {
-        var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-        c.style.setProperty("--mx", x * 100 + "%");
-        c.style.setProperty("--my", y * 100 + "%");
-        c.style.transform = "perspective(800px) rotateX(" + (0.5 - y) * 6 + "deg) rotateY(" + (x - 0.5) * 8 + "deg) translateY(-3px)";
-      });
-      c.addEventListener("pointerleave", function () { c.style.transform = ""; });
-    });
-  }
-
-  // ---- Hero field: a drifting molecular graph, with signals hopping along its bonds ----------
-  var canvas = document.getElementById("field");
-  var ctx = canvas.getContext("2d");
-  var W = 0, H = 0, dpr = 1, nodes = [], pulses = [], mouse = { x: -1e4, y: -1e4 }, colA = "109,76,255", colB = "14,165,198", running = true;
-  function readColors() {
-    var cs = getComputedStyle(root);
-    colA = cs.getPropertyValue("--node").trim() || colA;
-    colB = cs.getPropertyValue("--node-2").trim() || colB;
-  }
-  function resize() {
-    dpr = Math.min(2, devicePixelRatio || 1);
-    W = canvas.clientWidth; H = canvas.clientHeight;
-    canvas.width = W * dpr; canvas.height = H * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    var n = Math.round(Math.min(110, Math.max(36, (W * H) / 14000)));
-    nodes = [];
-    for (var i = 0; i < n; i++) {
-      nodes.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - 0.5) * 0.28, vy: (Math.random() - 0.5) * 0.28, r: 1.4 + Math.random() * 2.4, b: Math.random() < 0.3 });
-    }
-  }
-  var LINK = 130;
-  function frame() {
-    if (!running) return;
-    ctx.clearRect(0, 0, W, H);
-    for (var i = 0; i < nodes.length; i++) {
-      var a = nodes[i];
-      var dx = a.x - mouse.x, dy = a.y - mouse.y, d2 = dx * dx + dy * dy;
-      if (d2 < 22000) { a.vx += dx / 9000; a.vy += dy / 9000; }
-      a.vx *= 0.99; a.vy *= 0.99;
-      a.vx += (Math.random() - 0.5) * 0.012; a.vy += (Math.random() - 0.5) * 0.012;
-      a.x += a.vx; a.y += a.vy;
-      if (a.x < -20) a.x = W + 20; if (a.x > W + 20) a.x = -20;
-      if (a.y < -20) a.y = H + 20; if (a.y > H + 20) a.y = -20;
-    }
-    for (i = 0; i < nodes.length; i++) {
-      for (var j = i + 1; j < nodes.length; j++) {
-        var p = nodes[i], q = nodes[j], ex = p.x - q.x, ey = p.y - q.y, d = Math.sqrt(ex * ex + ey * ey);
-        if (d < LINK) {
-          ctx.strokeStyle = "rgba(" + (p.b || q.b ? colB : colA) + "," + (1 - d / LINK) * 0.32 + ")";
-          ctx.lineWidth = 1;
-          ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
-          if (!reduced && pulses.length < 14 && Math.random() < 0.0009) pulses.push({ a: p, b: q, t: 0 });
-        }
-      }
-    }
-    for (i = 0; i < nodes.length; i++) {
-      var o = nodes[i];
-      ctx.fillStyle = "rgba(" + (o.b ? colB : colA) + ",0.85)";
-      ctx.beginPath(); ctx.arc(o.x, o.y, o.r, 0, 6.283); ctx.fill();
-    }
-    for (i = pulses.length - 1; i >= 0; i--) {
-      var s = pulses[i];
-      s.t += 0.018;
-      if (s.t >= 1) { pulses.splice(i, 1); continue; }
-      var x = s.a.x + (s.b.x - s.a.x) * s.t, y = s.a.y + (s.b.y - s.a.y) * s.t;
-      var g = ctx.createRadialGradient(x, y, 0, x, y, 9);
-      g.addColorStop(0, "rgba(" + colB + ",0.95)"); g.addColorStop(1, "rgba(" + colB + ",0)");
-      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, 9, 0, 6.283); ctx.fill();
-    }
-    if (!reduced) requestAnimationFrame(frame);
-  }
-  readColors();
-  resize();
-  addEventListener("resize", resize);
-  canvas.parentElement.addEventListener("pointermove", function (e) { var r = canvas.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
-  canvas.parentElement.addEventListener("pointerleave", function () { mouse.x = mouse.y = -1e4; });
-  // Stop drawing when the hero is off screen or the tab is hidden.
-  new IntersectionObserver(function (en) {
-    var vis = en[0].isIntersecting && !document.hidden;
-    if (vis && !running) { running = true; requestAnimationFrame(frame); } else if (!vis) running = false;
-  }).observe(canvas);
-  document.addEventListener("visibilitychange", function () { if (!document.hidden && !running) { running = true; requestAnimationFrame(frame); } else if (document.hidden) running = false; });
-  requestAnimationFrame(frame);
 })();
+
+// Commit heatmap: on a narrow screen start at the most recent weeks.
+document.querySelectorAll(".activity-scroll").forEach((el) => { el.scrollLeft = el.scrollWidth; });
